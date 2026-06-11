@@ -1,0 +1,39 @@
+<script type="text/x-template" id="tpl-stock-table">
+  <div class="table-container">
+    <table class="stok-table">
+      <thead>
+        <tr>
+          <th class="matkul">Kode / Nama Mata Kuliah</th>
+          <th>Kategori Mata Kuliah</th>
+          <th>UT-Daerah</th>
+          <th>Lokasi Rak</th>
+          <th>Harga</th>
+          <th>Jumlah Stok</th>
+          <th>Jumlah Stok Safety</th>
+          <th>Status</th>
+          <th>Catatan</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <ba-stock-row
+          v-for="(item,index) in filteredStok"
+          :key="item.kode"
+          :item="item"
+          :index="index"
+          :stok="stok"
+          :edit-index="editIndex"
+          :kategori-list="kategoriList"
+          :upbjj-list="upbjjList"
+          @edit-row="$emit('edit-row',$event)"
+          @save-row="$emit('save-row')"
+          @delete-row="$emit('delete-row',$event)"
+          @format-text="(...args) => $emit('format-text', ...args)"
+          @change-color="(...args) => $emit('change-color', ...args)"
+        >
+        </ba-stock-row>
+      </tbody>
+    </table>
+  </div>
+</script>

@@ -1,0 +1,173 @@
+<script type="text/x-template" id="tpl-stock-row">
+  <tr>
+    <td class="matkul">
+      <div v-if="editIndex !== index">
+        <strong>{{ item.kode }}</strong>
+        <br />
+        {{ item.judul }}
+      </div>
+
+      <div v-else>
+        <input v-model="item.kode" class="edit-input" />
+        <input v-model="item.judul" class="edit-input" />
+      </div>
+    </td>
+
+    <td>
+      <span v-if="editIndex !== index">
+        {{ item.kategori }}
+      </span>
+
+      <select v-else v-model="item.kategori" class="edit-input">
+        <option
+          v-for="kategori in kategoriList"
+          :key="kategori"
+          :value="kategori"
+        >
+          {{ kategori }}
+        </option>
+      </select>
+    </td>
+
+    <td>
+      <span v-if="editIndex !== index">
+        {{ item.upbjj }}
+      </span>
+
+      <select v-else v-model="item.upbjj" class="edit-input">
+        <option
+          v-for="upbjj in upbjjList"
+          :key="upbjj"
+          :value="upbjj"
+        >
+          {{ upbjj }}
+        </option>
+      </select>
+    </td>
+
+    <td>
+      <span v-if="editIndex !== index">
+        {{ item.lokasiRak }}
+      </span>
+
+      <input
+        v-else
+        v-model="item.lokasiRak"
+        class="edit-input"
+      />
+    </td>
+
+    <td>
+      <span v-if="editIndex !== index">
+        {{ item.harga | rupiah }}
+      </span>
+
+      <input
+        v-else
+        type="number"
+        v-model="item.harga"
+        class="edit-input"
+      />
+    </td>
+
+    <td>
+      <span v-if="editIndex !== index">
+        {{ item.qty | buah }}
+      </span>
+
+      <input
+        v-else
+        type="number"
+        v-model="item.qty"
+        class="edit-input"
+      />
+    </td>
+
+    <td>
+      <span v-if="editIndex !== index">
+        {{ item.safety | buah }}
+      </span>
+
+      <input
+        v-else
+        type="number"
+        v-model="item.safety"
+        class="edit-input"
+      />
+    </td>
+
+    <td>
+      <ba-status-badge
+        :qty="item.qty"
+        :safety="item.safety"
+      >
+      </ba-status-badge>
+    </td>
+
+    <td>
+      <span
+        v-if="editIndex !== index"
+        v-html="item.catatanHTML"
+      >
+      </span>
+
+      <div v-else>
+        <div class="toolbar">
+          <button
+            @click="$emit('format-text', item, 'bold')"
+          >
+            B
+          </button>
+
+          <button
+            @click="$emit('format-text', item, 'italic')"
+          >
+            I
+          </button>
+
+          <button
+            @click="$emit('format-text', item, 'underline')"
+          >
+            U
+          </button>
+
+          <input
+            type="color"
+            @input="$emit('change-color', item, $event.target.value)"
+          />
+        </div>
+
+        <textarea
+          v-model="item.catatanText"
+          class="edit-input"
+        >
+        </textarea>
+      </div>
+    </td>
+
+    <td>
+      <button
+        v-if="editIndex !== index"
+        class="btn-edit"
+        @click="$emit('edit-row', index)"
+      >
+        Edit
+      </button>
+
+      <button
+        v-else
+        class="btn-save"
+        @click="$emit('save-row')"
+      >
+        Simpan
+      </button>
+
+      <button
+        class="btn-delete"
+        @click="$emit('delete-row', index)"
+      >
+        Hapus
+      </button>
+    </td>
+  </tr>
+</script>

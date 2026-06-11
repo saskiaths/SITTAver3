@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Informasi Bahan Ajar</title>
+    <link rel="stylesheet" href="assets/css/stok.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  </head>
+
+  <body>
+      <div id="app">
+        <app-sidebar></app-sidebar>
+
+        <div class="main">
+          <app-navbar></app-navbar>
+          <div class="main2">
+          <ba-stock-filter></ba-stock-filter>
+          <ba-stock-form></ba-stock-form>
+
+          <ba-app-modal></ba-app-modal>
+
+          <ba-stock-table
+            :filtered-stok="filteredStok"
+            :stok="stok"
+            :edit-index="editIndex"
+            :kategori-list="kategoriList"
+            :upbjj-list="upbjjList"
+            @edit-row="editData"
+            @save-row="saveData"
+            @delete-row="confirmDelete"
+            @format-text="formatText"
+            @change-color="changeColor"
+          >
+          </ba-stock-table></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="data/dataBahanAjar.js"></script>
+    <script src="data/script.js"></script>
+
+    <script src="js/components/sidebar.js"></script>
+    <script src="js/components/navbar.js"></script>
+
+    <script src="js/components/ba-stock-filter.js"></script>
+    <script src="js/components/ba-stock-form.js"></script>
+    <script src="js/components/ba-stock-table.js"></script>
+    <script src="js/components/ba-stock-row.js"></script>
+    <script src="js/components/ba-status-badge.js"></script>
+    <script src="js/components/ba-app-modal.js"></script>
+
+    <script src="js/templates-loader.js"></script>
+
+    <script>
+      loadTemplates().then(() => {
+        const script = document.createElement("script");
+        script.src = "js/app.js";
+
+        document.body.appendChild(script);
+      });
+    </script>
+  </body>
+</html>

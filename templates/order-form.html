@@ -1,0 +1,102 @@
+<script type="text/x-template" id="tpl-order-form">
+
+  <div v-if="showModal" class="modal-overlay">
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+
+        <h3>
+          Tambah Delivery Order
+        </h3>
+
+        <button
+          class="close-btn"
+          @click="closeModal"
+        >
+          ✕
+        </button>
+
+      </div>
+
+      <div class="form-grid">
+
+        <input
+          :value="nomorDOBaru"
+          readonly
+        >
+
+        <input
+          v-model="newTracking.nim"
+          placeholder="Masukkan NIM"
+        >
+
+        <input
+          v-model="newTracking.nama"
+          placeholder="Masukkan Nama"
+        >
+
+        <select
+          v-model="newTracking.ekspedisi"
+        >
+
+          <option value="">
+            Pilih Ekspedisi
+          </option>
+
+          <option
+            v-for="item in pengirimanList"
+            :key="item.kode"
+            :value="item.nama"
+          >
+            {{ item.nama }}
+          </option>
+
+        </select>
+
+        <select
+          v-model="newTracking.paket"
+        >
+
+          <option value="">
+            Pilih Paket
+          </option>
+
+          <option
+            v-for="item in paketList"
+            :key="item.kode"
+            :value="item.kode"
+          >
+            {{ item.kode }} - {{ item.nama }}
+          </option>
+
+        </select>
+
+        <input
+          type="date"
+          v-model="newTracking.tanggalKirim"
+        >
+
+        <input
+          :value="formatRupiah(totalHarga)"
+          readonly
+        >
+
+      </div>
+
+      <ba-package-detail
+        :selected-paket="selectedPaket"
+      >
+      </ba-package-detail>
+
+      <button
+        class="btn-save-data"
+        @click="tambahTracking"
+      >
+        Create DO
+      </button>
+
+    </div>
+
+  </div>
+</script>

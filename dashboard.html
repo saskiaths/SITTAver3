@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <app-sidebar></app-sidebar>
+
+      <div class="main">
+        <app-navbar></app-navbar>
+
+        <div class="content dashboard-page">
+          <div class="dashboard-header">
+            <div class="title-wrapper">
+              <h6 class="title-section">Dashboard SITTA</h6>
+              <span style="font-family: monospace">
+                - Sistem Informasi Tracking dan Transaksi Bahan Ajar -
+              </span>
+            </div>
+          </div>
+          <div class="dashboard-cards">
+            <div class="dashboard-card utama">
+              <div class="card-top">
+                <div class="icon-circle">📚</div>
+
+                <div>
+                  <h3>Data Bahan Ajar</h3>
+
+                  <p>Kelola dan pantau seluruh data bahan ajar tersedia</p>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <div>
+                  <h2 id="total-stok">0</h2>
+
+                  <span> Total Bahan Ajar </span>
+                </div>
+              </div>
+
+              <button
+                class="dashboard-btn"
+                onclick="location.href = 'stok.html'"
+              >
+                <strong class="tombol"> Informasi Bahan Ajar → </strong>
+              </button>
+            </div>
+
+            <div class="dashboard-card pengiriman">
+              <div class="card-top">
+                <div class="icon-circle">🚚</div>
+
+                <div>
+                  <h3>Pengiriman Bahan Ajar</h3>
+
+                  <p>Pantau status dan proses pengiriman bahan ajar</p>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <div>
+                  <h2 id="pengiriman-aktif">0</h2>
+
+                  <span> Pengiriman Aktif </span>
+                </div>
+              </div>
+
+              <button
+                class="dashboard-btn"
+                onclick="location.href = 'tracking.html'"
+              >
+                <strong class="tombol"> Tracking Pengiriman →</strong>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="data/dataBahanAjar.js"></script>
+    <script src="data/script.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+    <script src="js/components/sidebar.js"></script>
+    <script src="js/components/navbar.js"></script>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

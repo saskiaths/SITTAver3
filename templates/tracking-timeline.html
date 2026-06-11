@@ -1,0 +1,24 @@
+<script type="text/x-template" id="tpl-tracking-timeline">
+
+  <div class="timeline-container">
+
+    <h4>Riwayat Perjalanan</h4>
+
+    <div
+      v-for="(item,index) in selectedTracking.perjalanan"
+      :key="index"
+      class="timeline-item"
+    >
+
+      <strong>
+        {{ item.waktu }}
+      </strong>
+
+      <p>
+        {{ item.keterangan }}
+      </p>
+
+    </div>
+
+  </div>
+</script>

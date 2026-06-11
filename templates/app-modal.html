@@ -1,0 +1,27 @@
+<script type="text/x-template" id="tpl-app-modal">
+  <div v-if="showDeleteModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Konfirmasi Hapus</h3>
+      </div>
+
+      <p>Apakah Anda yakin ingin menghapus data ini?</p>
+
+      <br />
+
+      <button
+        class="btn-save-data"
+        @click="deleteData"
+      >
+        Ya, Hapus
+      </button>
+
+      <button
+        class="btn-reset"
+        @click="showDeleteModal = false"
+      >
+        Batal
+      </button>
+    </div>
+  </div>
+</script>

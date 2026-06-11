@@ -1,0 +1,13 @@
+<script type="text/x-template" id="tpl-status-badge">
+  <span v-if="qty >= safety" class="badge aman">
+    Aman
+  </span>
+
+  <span v-else-if="qty > 0" class="badge warning">
+    Menipis
+  </span>
+
+  <span v-else class="badge danger">
+    Kosong
+  </span>
+</script>

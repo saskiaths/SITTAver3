@@ -1,0 +1,43 @@
+<script type="text/x-template" id="tpl-tracking-list">
+
+  <div class="tracking-list">
+
+    <div class="table-container">
+
+      <table class="tracking-table">
+
+        <thead>
+
+          <tr>
+
+            <th>No DO</th>
+            <th>Nama</th>
+            <th>NIM</th>
+            <th>Ekspedisi</th>
+            <th>Paket</th>
+            <th>Tanggal Kirim</th>
+            <th>Total</th>
+            <th>Status</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <ba-tracking-card
+            v-for="(item,kode) in filteredTracking"
+            :key="kode"
+            :kode="kode"
+            :item="item"
+          >
+          </ba-tracking-card>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+</script>

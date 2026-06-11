@@ -1,0 +1,31 @@
+<script type="text/x-template" id="tpl-tracking-search">
+
+  <div>
+
+    <div class="title-wrapper2">
+
+      <h6 class="title-section2">
+        Daftar <i>Tracking Delivery Order</i>
+      </h6>
+
+      <button
+      class="btn-add"
+      @click="openModal">
+      + Tambah Delivery Order
+      </button>
+
+    </div>
+
+    <div class="search-box">
+      <input
+      type="text"
+      class="search-input"
+      v-model="keyword"
+      placeholder="Cari Nomor DO atau NIM"
+      @keyup.enter="searchTracking"
+      @keyup.esc="resetTracking"
+      >
+    </div>
+
+  </div>
+</script>

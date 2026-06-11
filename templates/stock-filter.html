@@ -1,0 +1,141 @@
+<script type="text/x-template" id="tpl-stock-filter">
+  <div>
+    <h6 class="title-section2">
+      <i>Filter & Sort</i> Bahan Ajar
+    </h6>
+
+    <div class="filter-box">
+      <table class="filter-table">
+        <thead>
+          <tr>
+            <th>UT-Daerah</th>
+            <th>Kategori Mata Kuliah</th>
+            <th>Status Stok</th>
+            <th>Urutkan</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody class="isi-table">
+          <tr>
+
+            <!-- UT Daerah -->
+            <td>
+              <select
+                v-model="selectedUpbjj"
+                class="filter-select"
+              >
+                <option value="">
+                  Semua UT-Daerah
+                </option>
+
+                <option
+                  v-for="upbjj in upbjjList"
+                  :key="upbjj"
+                  :value="upbjj"
+                >
+                  {{ upbjj }}
+                </option>
+              </select>
+            </td>
+
+            <!-- Kategori (Dependent Option) -->
+            <td>
+              <select
+                v-if="selectedUpbjj"
+                v-model="selectedKategori"
+                class="filter-select"
+              >
+                <option value="">
+                  Semua Kategori
+                </option>
+
+                <option
+                  v-for="kategori in kategoriList"
+                  :key="kategori"
+                  :value="kategori"
+                >
+                  {{ kategori }}
+                </option>
+              </select>
+
+              <select
+                v-else
+                class="filter-select"
+                disabled
+              >
+                <option>
+                  Pilih UT-Daerah terlebih dahulu
+                </option>
+              </select>
+            </td>
+
+            <!-- Status -->
+            <td>
+              <select
+                v-model="stokFilter"
+                class="filter-select"
+              >
+                <option value="">
+                  Semua Status
+                </option>
+
+                <option value="menipis">
+                  Menipis
+                </option>
+
+                <option value="kosong">
+                  Kosong
+                </option>
+              </select>
+            </td>
+
+            <!-- Sort -->
+            <td>
+              <select
+                v-model="sortBy"
+                class="filter-select"
+              >
+                <option value="">
+                  Urutkan
+                </option>
+
+                <option value="judul">
+                  Judul
+                </option>
+
+                <option value="stok">
+                  Stok
+                </option>
+
+                <option value="harga">
+                  Harga
+                </option>
+              </select>
+            </td>
+
+            <td>
+              <button
+                class="btn-filter"
+                @click="applyFilter"
+              >
+                Filter & Sort
+              </button>
+            </td>
+
+            <td>
+              <button
+                class="btn-reset"
+                @click="resetFilter"
+              >
+                Reset
+              </button>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</script>

@@ -1,0 +1,19 @@
+<script type="text/x-template" id="tpl-package-detail">
+  <div
+    v-if="selectedPaket"
+    class="detail-paket"
+  >
+    <strong>
+      Isi Paket Bahan Ajar
+    </strong>
+
+    <ul>
+      <li
+        v-for="(kode,index) in selectedPaket.isi"
+        :key="index"
+      >
+        {{ kode }}
+      </li>
+    </ul>
+  </div>
+</script>

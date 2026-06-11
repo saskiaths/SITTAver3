@@ -1,0 +1,46 @@
+<script type="text/x-template" id="tpl-tracking-card">
+  <tr>
+
+    <td class="do-kode">
+      {{ kode }}
+    </td>
+
+    <td>
+      {{ item.nama }}
+    </td>
+
+    <td>
+      {{ item.nim }}
+    </td>
+
+    <td>
+      {{ item.ekspedisi }}
+    </td>
+
+    <td>
+      {{ item.paket }}
+    </td>
+
+    <td>
+      {{ item.tanggalKirim }}
+    </td>
+
+    <td class="harga">
+      {{ item.total | rupiah }}
+    </td>
+
+    <td>
+      <span
+        class="badge"
+        :class="{
+          aman: item.status === 'Diterima',
+          warning: item.status === 'Dalam Perjalanan',
+          danger: item.status === 'Dikirim'
+        }"
+      >
+        {{ item.status }}
+      </span>
+    </td>
+
+  </tr>
+</script>

@@ -1,0 +1,42 @@
+<script type="text/x-template" id="tpl-progress-form">
+
+  <div class="tracking-form">
+
+    <h3 class="form-title">
+      Update Progress Pengiriman
+    </h3>
+
+    <div class="form-grid">
+
+      <select v-model="selectedDO">
+
+        <option value="">
+          Pilih Delivery Order
+        </option>
+
+        <option
+          v-for="(item,kode) in tracking"
+          :key="kode"
+          :value="kode"
+        >
+          {{ kode }}
+        </option>
+
+      </select>
+
+      <input
+        v-model="keterangan"
+        placeholder="Masukkan Keterangan Progress"
+      >
+
+    </div>
+
+    <button
+      class="btn-save-data"
+      @click="tambahProgress"
+    >
+      Tambah Progress
+    </button>
+
+  </div>
+</script>

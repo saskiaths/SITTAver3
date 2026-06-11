@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Tracking Pengiriman</title>
+
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <app-sidebar></app-sidebar>
+
+      <div class="main">
+        <app-navbar></app-navbar>
+
+        <div class="content2">
+          <ba-tracking-search></ba-tracking-search>
+
+          <ba-order-form></ba-order-form>
+
+          <ba-progress-form></ba-progress-form>
+
+          <ba-tracking-list></ba-tracking-list>
+
+          <ba-tracking-timeline></ba-tracking-timeline>
+        </div>
+      </div>
+    </div>
+
+    <script src="data/dataBahanAjar.js"></script>
+    <script src="data/script.js"></script>
+
+    <script src="js/components/sidebar.js"></script>
+    <script src="js/components/navbar.js"></script>
+
+    <script src="js/components/ba-tracking-search.js"></script>
+    <script src="js/components/ba-order-form.js"></script>
+    <script src="js/components/ba-package-detail.js"></script>
+    <script src="js/components/ba-progress-form.js"></script>
+    <script src="js/components/ba-tracking-list.js"></script>
+    <script src="js/components/ba-tracking-card.js"></script>
+    <script src="js/components/ba-tracking-timeline.js"></script>
+
+    <script src="js/templates-loader.js"></script>
+
+    <script>
+      loadTemplates().then(() => {
+        const script = document.createElement("script");
+        script.src = "js/app.js";
+        document.body.appendChild(script);
+      });
+    </script>
+  </body>
+</html>

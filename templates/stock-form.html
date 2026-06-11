@@ -1,0 +1,95 @@
+<script type="text/x-template" id="tpl-stock-form">
+  <div>
+    <div class="title-wrapper">
+      <h6 class="title-section">Daftar Stok Bahan Ajar</h6>
+
+      <button class="btn-add" @click="showModal = true">
+        + Tambah Bahan Ajar
+      </button>
+    </div>
+
+    <div v-if="showModal" class="modal-overlay">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Tambah Bahan Ajar</h3>
+
+          <button class="close-btn" @click="closeModal">
+            ✕
+          </button>
+        </div>
+
+        <div class="form-grid">
+          <input
+            v-model="newItem.kode"
+            placeholder="Kode Mata Kuliah"
+          />
+
+          <input
+            v-model="newItem.judul"
+            placeholder="Nama Mata Kuliah"
+          />
+
+          <select v-model="newItem.kategori">
+            <option value="">Pilih Kategori</option>
+
+            <option
+              v-for="kategori in kategoriList"
+              :key="kategori"
+              :value="kategori"
+            >
+              {{ kategori }}
+            </option>
+          </select>
+
+          <select v-model="newItem.upbjj">
+            <option value="">Pilih UT-Daerah</option>
+
+            <option
+              v-for="upbjj in upbjjList"
+              :key="upbjj"
+              :value="upbjj"
+            >
+              {{ upbjj }}
+            </option>
+          </select>
+
+          <input
+            v-model="newItem.lokasiRak"
+            placeholder="Lokasi Rak"
+          />
+
+          <input
+            type="number"
+            v-model="newItem.harga"
+            placeholder="Harga"
+          />
+
+          <input
+            type="number"
+            v-model="newItem.qty"
+            placeholder="Jumlah Stok"
+          />
+
+          <input
+            type="number"
+            v-model="newItem.safety"
+            placeholder="Safety Stock"
+          />
+
+          <textarea
+            v-model="newItem.catatanText"
+            placeholder="Catatan"
+          ></textarea>
+        </div>
+
+        <button
+          class="btn-save-data"
+          @click="tambahData"
+          @keyup.enter="tambahData"
+        >
+          Simpan Data
+        </button>
+      </div>
+    </div>
+  </div>
+</script>
